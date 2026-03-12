@@ -11,18 +11,18 @@ const Footer = () => {
                                 <span className="dot orange"></span>
                                 <span className="dot pink"></span>
                             </div>
-                            <span>skillkoder</span>
+                            <span>Skillkoder</span>
                         </div>
                         <p className="footer-tagline">
-                            Empowering enterprises with intelligence.
+                            AI automation &amp; web design for startups.
                         </p>
                     </div>
 
                     <div className="footer-links-section">
                         <div className="footer-column">
                             <h4>Contact</h4>
-                            <a href="mailto:skillkoder@gmail.com" className="footer-link email-link">
-                                skillkoder@gmail.com
+                            <a href="mailto:info@skillkoder.com" className="footer-link email-link">
+                                info@skillkoder.com
                             </a>
                         </div>
 

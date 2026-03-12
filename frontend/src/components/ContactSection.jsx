@@ -1,10 +1,10 @@
 const ContactSection = () => {
     return (
-        <section className="contact-section">
+        <section className="contact-section" id="contact">
             <div className="container">
                 <div className="contact-header">
-                    <h2>How can we help you?</h2>
-                    <p>Every day, Skillkoder leverages AI-infused technologies to empower clients around the globe to build a more resilient, secure and sustainable future.</p>
+                    <h2>Get in Touch</h2>
+                    <p>Interested in AI automation, website design or custom AI solutions? Drop us a message and let's start a conversation.</p>
                 </div>
 
                 <div className="contact-form-container">

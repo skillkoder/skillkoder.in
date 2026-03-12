@@ -1,7 +1,9 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
-import EarningsBar from './components/EarningsBar'
-import SuccessStories from './components/SuccessStories'
+import Services from './components/Services'
+import About from './components/About'
+import Projects from './components/Projects'
+import Clients from './components/Clients'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import './index.css'
@@ -11,8 +13,10 @@ function App() {
         <div className="App">
             <Header />
             <Hero />
-            <EarningsBar />
-            <SuccessStories />
+            <Services />
+            <About />
+            <Projects />
+            <Clients />
             <ContactSection />
             <Footer />
         </div>

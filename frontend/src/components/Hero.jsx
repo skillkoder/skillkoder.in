@@ -1,73 +1,40 @@
 import { useState, useEffect } from 'react';
 
 const Hero = () => {
-    const [currentStage, setCurrentStage] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [fade, setFade] = useState(true);
 
-    // Content configuration
-    // The user wants:
-    // 1. "AI is faster evaluation than ever"
-    // 2. "Empowering enterprises with Skillkoder"
-    // 3. "Skillkoder" (Constant)
-
-    const stages = [
-        {
-            pillContent: "AI solutions",
-            subText: "AI is faster evaluation than ever so we are from Skillkoder."
-        },
-        {
-            pillContent: "Skillkoder Intelligence",
-            subText: "And there next further Skillkoder."
-        },
-        {
-            pillContent: "Skillkoder",
-            subText: "Empowering enterprices with Skillkoder.",
-            isFinal: true
-        }
+    const messages = [
+        'AI Automation for Modern Businesses',
+        'Intelligent Solutions, Real Results',
+        'Transform Your Business with AI'
     ];
 
     useEffect(() => {
-        // If we've reached the final stage (Skillkoder constant), stop the timer.
-        if (stages[currentStage].isFinal) return;
+        const fadeOutTimer = setTimeout(() => {
+            setFade(false);
+        }, 3500);
 
-        const timer = setTimeout(() => {
-            setIsTransitioning(true);
-            setTimeout(() => {
-                setCurrentStage((prev) => prev + 1);
-                setIsTransitioning(false);
-            }, 500); // Wait for fade out animation
-        }, 4000); // 4 seconds per slide
+        const changeTimer = setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % messages.length);
+            setFade(true);
+        }, 4000);
 
-        return () => clearTimeout(timer);
-    }, [currentStage]);
-
-    const currentContent = stages[currentStage];
+        return () => {
+            clearTimeout(fadeOutTimer);
+            clearTimeout(changeTimer);
+        };
+    }, [currentIndex]);
 
     return (
-        <section className="hero">
+        <section className="hero" id="home">
+            <div className="hero-background"></div>
             <div className="hero-container">
-
-                {/* Main Static Header Part */}
-                <h1 className="gradient-text-hero">
-                    empowering enterprises
+                <h1 className={`gradient-text-hero ${fade ? 'fade-in' : 'fade-out'}`}>
+                    {messages[currentIndex]}
                 </h1>
-
-                <div className="hero-connector">
-                    with
-                </div>
-
-                {/* Animated Central Pill */}
-                <div className={`hero-pill-container ${isTransitioning ? 'animate-out' : ''}`}>
-                    <div className="hero-pill">
-                        {currentContent.pillContent}
-                    </div>
-                </div>
-
-                {/* Animated Subtext */}
-                <div className={`hero-subtext ${isTransitioning ? 'animate-out' : ''}`}>
-                    {currentContent.subText}
-                </div>
-
+                <p className="hero-subtext">Delivering innovative AI-powered solutions and beautiful websites that clients trust.</p>
+                <a href="#projects" className="hero-cta">View Our Work</a>
             </div>
         </section>
     );
